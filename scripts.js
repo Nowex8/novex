@@ -15,3 +15,8 @@ function summarizeText() {
   const summary = words.slice(0, Math.ceil(words.length / 3)).join(" ");
   document.getElementById("summaryResult").innerText = summary + "...";
 }
+function chatbotReply() {
+  const input = document.getElementById("chatInput").value;
+  const response = "Hmm... that's interesting! Tell me more.";
+  document.getElementById("chatResponse").innerText = response;
+}
