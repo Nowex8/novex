@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -6,26 +6,45 @@ body {
   color: #333;
   margin: 0;
   padding: 0;
-  line-height: 1.6;
 }
 
-header {
-  background-color: #007bff;
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  border-radius: 12px;
+}
+
+textarea, input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 1em;
+  background-color: #0078D7;
   color: white;
-  padding: 2rem;
-  text-align: center;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.about {
-  padding: 2rem;
-  max-width: 800px;
-  margin: auto;
+button:hover {
+  background-color: #005ea6;
 }
 
 footer {
   text-align: center;
-  padding: 1rem;
-  background-color: #eee;
-  margin-top: 2rem;
-  font-size: 0.9rem;
+  padding: 20px;
+  color: #777;
+  font-size: 0.9em;
 }
