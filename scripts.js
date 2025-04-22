@@ -9,3 +9,9 @@ function simplifyText() {
 
     document.getElementById('result').innerText = simplified || 'Nothing to simplify.';
 }
+function summarizeText() {
+  const input = document.getElementById("userInput").value;
+  const words = input.split(" ");
+  const summary = words.slice(0, Math.ceil(words.length / 3)).join(" ");
+  document.getElementById("summaryResult").innerText = summary + "...";
+}
