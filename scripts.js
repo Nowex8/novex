@@ -1,24 +1,32 @@
-function simplifyText() {
-  const input = document.getElementById('inputText').value;
-  const output = document.getElementById('output');
+async function simplifyText() {
+  const input = document.getElementById("inputText").value.trim();
+  const output = document.getElementById("outputText");
 
-  if (!input.trim()) {
-    output.textContent = 'Please enter some text.';
+  if (!input) {
+    output.innerText = "Please enter some text.";
     return;
   }
 
-  // Basit bir örnek sadeleştirme (gerçek AI yerine basitleştirilmiş demo)
-  let simplified = input.replace(/\b(utilize|commence|terminate|endeavor|assist|purchase)\b/gi, function (match) {
-    const map = {
-      utilize: 'use',
-      commence: 'start',
-      terminate: 'end',
-      endeavor: 'try',
-      assist: 'help',
-      purchase: 'buy'
-    };
-    return map[match.toLowerCase()] || match;
-  });
+  output.innerText = "Simplifying...";
 
-  output.textContent = simplified;
+  try {
+    const response = await fetch("https://api-inference.huggingface.co/models/facebook/bart-large-cnn", {
+      method: "POST",
+      headers: {
+        "Authorization": "Bearer YOUR_HUGGINGFACE_API_KEY",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ inputs: input }),
+    });
+
+    const data = await response.json();
+
+    if (data.error) {
+      output.innerText = "Error: " + data.error;
+    } else {
+      output.innerText = data[0].summary_text || "Simplification failed.";
+    }
+  } catch (err) {
+    output.innerText = "There was an error connecting to the API.";
+  }
 }
