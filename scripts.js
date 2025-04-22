@@ -13,7 +13,7 @@ async function simplifyText() {
     const response = await fetch("https://api-inference.huggingface.co/models/facebook/bart-large-cnn", {
       method: "POST",
       headers: {
-        "Authorization": "Bearer YOUR_HUGGINGFACE_API_KEY",
+        "Authorization": "Bearer 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",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ inputs: input }),
